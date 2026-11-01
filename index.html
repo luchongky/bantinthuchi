@@ -30,7 +30,6 @@
         <span><strong>THU - CHI NSNN</strong><small>Bản tin ngân sách hằng tuần</small></span>
       </a>
       <nav class="nav-menu" aria-label="Điều hướng chính">
-        <a href="#tong-quan">Tổng quan</a>
         <a href="#ban-tin-thu">Bản tin thu</a>
         <a href="#ban-tin-chi">Bản tin chi</a>
         <a href="#thu-vien">Lưu trữ</a>
@@ -47,8 +46,8 @@
           <h1>Bản tin thu - chi<br><span>ngân sách nhà nước</span></h1>
           <p>Kết quả thu ngân sách nhà nước và tiến độ giải ngân kinh phí chi thường xuyên trên địa bàn tỉnh Cao Bằng, cập nhật theo kỳ báo cáo hằng tuần.</p>
           <div class="hero-actions">
-            <a href="#tong-quan" class="button button-white">Xem số liệu kỳ mới nhất <span aria-hidden="true">↗</span></a>
-            <a href="#ban-tin-thu" class="button button-outline-light">Đọc bản tin thu</a>
+            <a href="#ban-tin-thu" class="button button-white">Xem bản tin kỳ mới nhất <span aria-hidden="true">↗</span></a>
+            <a href="#ban-tin-chi" class="button button-outline-light">Đọc bản tin chi</a>
           </div>
           <div class="hero-foot" id="hero-date">Đang tải thông tin các kỳ báo cáo…</div>
         </div>
@@ -68,39 +67,9 @@
       </div>
     </section>
 
-    <section class="overview section" id="tong-quan">
-      <div class="wrap">
-        <div class="section-head">
-          <div><span class="section-kicker">01 / KẾT QUẢ KỲ BÁO CÁO</span><h2>Kết quả thu ngân sách và giải ngân</h2><p>Số liệu tổng hợp của bản tin thu và bản tin chi cùng kỳ.</p></div>
-          <div class="date-stamp"><span>KỲ BÁO CÁO</span><strong id="latest-date">--/--/----</strong><small id="latest-availability">Đang tải…</small></div>
-        </div>
-        <div class="finance-grid">
-          <article class="finance-card finance-income">
-            <div class="card-header"><div><span class="card-kicker"><i></i> BẢN TIN THU NSNN</span><h3>Thu nội địa và xuất nhập khẩu</h3></div><span class="card-number">01</span></div>
-            <div class="metric-main"><strong id="income-total">—</strong><span>tỷ đồng</span></div>
-            <div class="performance"><span>Thực hiện dự toán HĐND</span><b id="income-rate">—</b></div>
-            <div class="progress-track"><div id="income-progress" class="progress-fill"></div></div>
-            <div class="target-info" id="income-target">Dự toán: —</div>
-            <div class="sub-metrics" id="income-facts"></div>
-            <div class="card-bottom"><span id="income-context">—</span><a class="text-button" href="#ban-tin-thu">Đọc bản tin thu <span aria-hidden="true">↗</span></a></div>
-          </article>
-          <article class="finance-card finance-expense">
-            <div class="card-header"><div><span class="card-kicker"><i></i> BẢN TIN CHI NSNN</span><h3>Giải ngân kinh phí chi thường xuyên</h3></div><span class="card-number">02</span></div>
-            <div class="metric-main"><strong id="expense-total">—</strong><span>tỷ đồng</span></div>
-            <div class="performance"><span>Thực hiện dự toán được theo dõi</span><b id="expense-rate">—</b></div>
-            <div class="progress-track"><div id="expense-progress" class="progress-fill"></div></div>
-            <div class="target-info" id="expense-target">Dự toán: —</div>
-            <div class="sub-metrics" id="expense-facts"></div>
-            <div class="card-bottom"><span id="expense-context">—</span><a class="text-button" href="#ban-tin-chi">Đọc bản tin chi <span aria-hidden="true">↗</span></a></div>
-          </article>
-        </div>
-        <p class="scope-alert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8v.2" stroke-linecap="round"/></svg><span><strong>Lưu ý phạm vi:</strong> Chỉ tiêu thu phản ánh thu nội địa và thu xuất nhập khẩu; chỉ tiêu chi là <strong>giải ngân các nguồn kinh phí chi thường xuyên được theo dõi</strong>, không phải toàn bộ chi NSNN. Không lấy hai số này trừ nhau để tính cân đối ngân sách.</span></p>
-      </div>
-    </section>
-
     <section class="documents section" id="ban-tin-thu">
       <div class="wrap">
-        <div class="section-head"><div><span class="section-kicker">02 / BẢN TIN THU</span><h2>Bản tin thu ngân sách nhà nước</h2><p>Bản PDF gốc của kỳ báo cáo, có thể xem trực tiếp hoặc tải về.</p></div></div>
+        <div class="section-head"><div><span class="section-kicker">01 / BẢN TIN THU</span><h2>Bản tin thu ngân sách nhà nước</h2><p>Bản PDF gốc của kỳ báo cáo, có thể xem trực tiếp hoặc tải về.</p></div></div>
         <div class="viewer-shell">
           <div class="viewer-bar"><div class="viewer-tabs"><span class="viewer-tab active">Bản tin thu</span></div><span class="viewer-date" id="viewer-date">—</span></div>
           <div class="viewer-body">
@@ -115,7 +84,7 @@
 
     <section class="documents section" id="ban-tin-chi">
       <div class="wrap">
-        <div class="section-head"><div><span class="section-kicker">03 / BẢN TIN CHI</span><h2>Bản tin chi ngân sách nhà nước</h2><p>Tiến độ giải ngân kinh phí chi thường xuyên, tự động tổng hợp từ báo cáo giải ngân của các xã, phường và sở, ban, ngành.</p></div>
+        <div class="section-head"><div><span class="section-kicker">02 / BẢN TIN CHI</span><h2>Bản tin chi ngân sách nhà nước</h2><p>Tiến độ giải ngân kinh phí chi thường xuyên, tự động tổng hợp từ báo cáo giải ngân của các xã, phường và sở, ban, ngành.</p></div>
           <div class="viewer-controls"><button type="button" class="button button-download" id="print-chi">In / Lưu PDF <span aria-hidden="true">↓</span></button></div></div>
         <div class="bulletin-shell"><div id="chi-bulletin" class="bulletin"><p class="muted">Đang tải số liệu chi…</p></div></div>
       </div>
@@ -123,7 +92,7 @@
 
     <section class="archive section" id="thu-vien">
       <div class="wrap">
-        <div class="section-head"><div><span class="section-kicker">04 / THƯ VIỆN BẢN TIN</span><h2>Tra cứu theo tuần</h2><p>Mỗi kỳ có thể gồm bản tin thu, bản tin chi hoặc cả hai.</p></div><span class="archive-counter" id="archive-counter">— kỳ</span></div>
+        <div class="section-head"><div><span class="section-kicker">03 / THƯ VIỆN BẢN TIN</span><h2>Tra cứu theo tuần</h2><p>Mỗi kỳ có thể gồm bản tin thu, bản tin chi hoặc cả hai.</p></div><span class="archive-counter" id="archive-counter">— kỳ</span></div>
         <div class="filters"><label class="filter-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5" stroke-linecap="round"/></svg><input id="search" type="search" autocomplete="off" placeholder="Tìm ngày, tháng hoặc năm…"><span class="sr-only">Tìm kiếm bản tin</span></label><label class="filter-select">Năm <select id="year" aria-label="Năm báo cáo"><option value="all">Tất cả</option></select></label></div>
         <div id="archive-list" class="archive-list"></div>
         <p id="no-match" class="no-match" hidden>Không tìm thấy kỳ báo cáo phù hợp.</p>
@@ -132,7 +101,7 @@
   </main>
 
   <footer class="footer">
-    <div class="wrap footer-top"><div><div class="footer-title">BẢN TIN THU - CHI NGÂN SÁCH NHÀ NƯỚC</div><div>Sở Tài chính tỉnh Cao Bằng</div><p>Bản tin thu do quản trị đăng hằng tuần; bản tin chi tổng hợp tự động từ hệ thống theo dõi giải ngân.</p></div><div class="footer-navigation"><a href="#tong-quan">Tổng quan</a><a href="#ban-tin-thu">Bản tin thu</a><a href="#ban-tin-chi">Bản tin chi</a><a href="admin.html">Quản trị</a></div></div>
+    <div class="wrap footer-top"><div><div class="footer-title">BẢN TIN THU - CHI NGÂN SÁCH NHÀ NƯỚC</div><div>Sở Tài chính tỉnh Cao Bằng</div><p>Bản tin thu do quản trị đăng hằng tuần; bản tin chi tổng hợp tự động từ hệ thống theo dõi giải ngân.</p></div><div class="footer-navigation"><a href="#ban-tin-thu">Bản tin thu</a><a href="#ban-tin-chi">Bản tin chi</a><a href="admin.html">Quản trị</a></div></div>
     <div class="wrap footer-bottom"><span>© <span id="footer-year">2026</span> · Bản tin ngân sách tỉnh Cao Bằng</span><span>Xây dựng: Lục Hồng Kỳ</span></div>
   </footer>
 </body>

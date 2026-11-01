@@ -1,7 +1,7 @@
 /* Cổng bản tin Thu - Chi NSNN Cao Bằng. Đọc dữ liệu công khai từ backend Apps Script. */
 (() => {
   'use strict';
-  const $ = (s) => document.querySelector(s);
+  const $ = (s) => document.querySelector(s) || document.createElement('div');
   const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const nf = (v, d = 1) => new Intl.NumberFormat('vi-VN', {minimumFractionDigits: d, maximumFractionDigits: d}).format(v);
   const ty = (trieu) => nf((Number(trieu) || 0) / 1000);
