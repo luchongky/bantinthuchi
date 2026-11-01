@@ -1,0 +1,66 @@
+.nav-period { display:flex; align-items:center; gap:8px; font-size:12px; font-weight:760; color:#29556f; }
+.nav-period select { border:1px solid #d4e1e9; border-radius:999px; padding:8px 12px; background:#fff; color:#11314d; font-weight:700; }
+.section-head .viewer-controls { align-self:flex-end; }
+#pdf-frame[hidden] { display:none; }
+
+/* Bản tin chi dạng trang A4 */
+.bulletin-shell { background:#eef3f7; border:1px solid var(--line); border-radius:18px; padding:22px; overflow:auto; }
+.bulletin { background:#fff; max-width:820px; margin:0 auto; padding:22px 26px; border-radius:6px; box-shadow:var(--shadow-md); color:#1d2530; font-size:12.5px; line-height:1.45; }
+.b-hd { background:#1f3a5f; color:#fff; border-radius:6px; padding:11px 15px; display:flex; justify-content:space-between; align-items:center; gap:14px; }
+.b-org { font-size:11.5px; line-height:1.5; }
+.b-t { text-align:right; } .b-t h3 { margin:0 0 3px; font-size:18px; color:#fff; letter-spacing:.2px; } .b-t div { font-size:11px; opacity:.9; }
+.b-src { color:#555; font-size:11px; margin:7px 0 2px; }
+.bulletin h4 { font-size:13px; color:#1f3a5f; border-bottom:1.5px solid #1f3a5f; padding-bottom:2px; margin:11px 0 7px; text-transform:uppercase; }
+.b-kpi { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+.b-kpi .k { border:1px solid #dde2e8; border-left:4px solid #2f7bd8; border-radius:4px; padding:7px 9px; display:flex; flex-direction:column; }
+.b-kpi .k.o { border-left-color:#e8692e; } .b-kpi .k.r { border-left-color:#c0392b; } .b-kpi .k.n { border-left-color:#1f3a5f; }
+.b-kpi span { font-size:10px; color:#555; text-transform:uppercase; } .b-kpi strong { font-size:22px; line-height:1.25; } .b-kpi em { font-style:normal; font-size:11px; color:#333; }
+.b-tablewrap { overflow-x:auto; }
+.b-table { width:100%; border-collapse:collapse; margin-top:8px; font-size:11.5px; min-width:560px; }
+.b-table th { background:#eef1f5; border:1px solid #d5dbe2; padding:4px 5px; text-align:right; } .b-table th.l { text-align:left; }
+.b-table td { border:1px solid #e1e5ea; padding:3px 6px; text-align:right; } .b-table td.l { text-align:left; }
+.b-table tr.tot td { font-weight:700; background:#f6f8fa; }
+.b-note { font-size:11px; color:#444; margin-top:5px; }
+.b-charts { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:10px; }
+.b-charts h5 { margin:0 0 3px; font-size:12px; } .b-charts p { font-size:10.5px; color:#555; margin:2px 0 0; }
+.bulletin ul { margin:0; padding-left:17px; } .bulletin li { margin-bottom:4px; }
+.b-ft { border-top:1px solid #ddd; margin-top:10px; padding-top:5px; text-align:center; color:#777; font-size:10px; }
+
+@media (max-width:760px) {
+  .nav-menu { display:none; }
+  .bulletin-shell { padding:8px; border-radius:12px; }
+  .bulletin { padding:14px 12px; font-size:13px; }
+  .b-hd { flex-direction:column; align-items:flex-start; } .b-t { text-align:left; } .b-t h3 { font-size:16px; }
+  .b-kpi { grid-template-columns:1fr 1fr; } .b-charts { grid-template-columns:1fr; }
+}
+
+@media print {
+  @page { size:A4; margin:8mm 9mm; }
+  body.print-chi { background:#fff; }
+  body.print-chi > *:not(main), body.print-chi main > section:not(#ban-tin-chi), body.print-chi #ban-tin-chi .section-head { display:none !important; }
+  body.print-chi #ban-tin-chi { padding:0 !important; }
+  body.print-chi .wrap { width:100%; }
+  body.print-chi .bulletin-shell { background:none; border:0; padding:0; }
+  body.print-chi .bulletin { box-shadow:none; padding:0; max-width:none; font-size:10.3px; }
+  body.print-chi .b-kpi strong { font-size:18px; } body.print-chi .b-table { font-size:9.6px; min-width:0; }
+  body.print-chi .b-hd, body.print-chi .b-table th, body.print-chi .b-kpi .k { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+}
+
+/* Trang quản trị */
+.admin-wrap { width:min(880px, calc(100% - 32px)); margin:28px auto 60px; }
+.panel { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px 22px; box-shadow:var(--shadow-sm); margin-bottom:18px; }
+.panel h2 { font-size:18px; margin-bottom:6px; color:var(--navy); }
+.panel p.hint { color:var(--muted); font-size:13px; margin-bottom:12px; }
+.form-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px 14px; }
+.form-grid label, .login label { display:flex; flex-direction:column; font-size:12px; font-weight:700; color:#3c5568; gap:4px; }
+.form-grid input, .login input { border:1px solid #cfdbe4; border-radius:9px; padding:8px 10px; font-size:14px; color:#11314d; }
+.login { display:grid; gap:12px; max-width:360px; }
+.btn { border:0; border-radius:10px; padding:10px 16px; font-weight:760; background:var(--navy); color:#fff; }
+.btn.light { background:#eef4f8; color:var(--navy); } .btn.danger { background:#fbeaea; color:#b03030; }
+.row-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; align-items:center; }
+.msg { font-size:13px; margin-top:10px; } .msg.err { color:#b03030; } .msg.ok { color:#1d7a43; }
+.drop { border:2px dashed #b9cbd8; border-radius:14px; padding:22px; text-align:center; color:#4b6476; background:#f7fafc; cursor:pointer; }
+.drop.has { border-color:#1a8892; background:#effafa; }
+.admin-table { width:100%; border-collapse:collapse; font-size:13px; }
+.admin-table th, .admin-table td { border-bottom:1px solid #e3eaf0; padding:8px 6px; text-align:left; }
+@media (max-width:640px) { .form-grid { grid-template-columns:1fr 1fr; } }

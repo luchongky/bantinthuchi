@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Quản trị bản tin | Thu - Chi NSNN Cao Bằng</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="extra.css">
+  <script src="config.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="admin.js" defer></script>
+</head>
+<body>
+  <div class="institutional"><div class="wrap institutional-inner"><div>UBND TỈNH CAO BẰNG <span class="ins-divider"></span> SỞ TÀI CHÍNH</div><div class="trial-mark">KHU VỰC QUẢN TRỊ</div></div></div>
+  <header class="nav-header"><div class="wrap nav-main">
+    <a class="identity" href="index.html"><span class="identity-icon" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none"><path d="M7 37.5h34M11 33V19l13-9 13 9v14M16 19h16M18.5 27h11M24 19v14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6"/></svg></span><span><strong>QUẢN TRỊ BẢN TIN</strong><small>Thu - Chi NSNN</small></span></a>
+    <div class="row-actions" style="margin:0"><a class="nav-pill" href="index.html">Về trang bản tin</a><button class="btn light" id="logout" hidden>Đăng xuất</button></div>
+  </div></header>
+
+  <div class="admin-wrap">
+    <section class="panel" id="login-panel">
+      <h2>Đăng nhập quản trị</h2>
+      <p class="hint">Dùng tài khoản quản trị đã cài trong backend.</p>
+      <form class="login" id="login-form">
+        <label>Tên đăng nhập <input id="user" autocomplete="username" required></label>
+        <label>Mật khẩu <input id="pass" type="password" autocomplete="current-password" required></label>
+        <div><button class="btn" type="submit">Đăng nhập</button></div>
+        <div class="msg" id="login-msg"></div>
+      </form>
+    </section>
+
+    <div id="admin-area" hidden>
+      <section class="panel">
+        <h2>Tải lên bản tin thu tuần</h2>
+        <p class="hint">Chọn tệp PDF bản tin thu. Hệ thống tự đọc ngày kỳ báo cáo và các chỉ tiêu chính; kiểm tra lại các ô trước khi đăng. Tải lại cùng kỳ sẽ thay bản cũ.</p>
+        <input type="file" id="file" accept="application/pdf" hidden>
+        <div class="drop" id="drop">Bấm để chọn hoặc kéo thả tệp PDF bản tin thu vào đây</div>
+        <div id="thu-form" hidden style="margin-top:16px">
+          <div class="form-grid">
+            <label>Kỳ báo cáo (ngày) <input id="f-date" type="date" required></label>
+            <label>Thu NĐ + XNK (tỷ) <input id="f-total"></label>
+            <label>% dự toán HĐND <input id="f-budget_pct"></label>
+            <label>Dự toán HĐND (tỷ) <input id="f-budget"></label>
+            <label>Mục tiêu phấn đấu (tỷ) <input id="f-ambition"></label>
+            <label>% mục tiêu phấn đấu <input id="f-ambition_pct"></label>
+            <label>Thu nội địa (tỷ) <input id="f-domestic"></label>
+            <label>% DT thu nội địa <input id="f-domestic_pct"></label>
+            <label>Thu XNK (tỷ) <input id="f-customs"></label>
+            <label>% DT thu XNK <input id="f-customs_pct"></label>
+            <label>Còn phải thu (tỷ) <input id="f-remaining"></label>
+            <label>Thu trong tuần (tỷ) <input id="f-weekly"></label>
+          </div>
+          <div class="row-actions"><button class="btn" id="upload">Đăng bản tin thu</button><button class="btn light" id="reset">Chọn tệp khác</button></div>
+        </div>
+        <div class="msg" id="up-msg"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Bản tin thu đã đăng</h2>
+        <table class="admin-table"><thead><tr><th>Kỳ</th><th>Tệp</th><th>Thu NĐ + XNK</th><th>Ngày đăng</th><th></th></tr></thead><tbody id="thu-list"></tbody></table>
+      </section>
+
+      <section class="panel">
+        <h2>Bản tin chi (tự động)</h2>
+        <p class="hint">Số liệu chi tự lấy từ hệ thống theo dõi giải ngân mỗi 2 giờ và khi có người xem (tối đa 1 giờ/lần). Có thể bấm cập nhật ngay.</p>
+        <div class="row-actions" style="margin-top:0"><button class="btn" id="refresh-chi">Cập nhật số liệu chi ngay</button><span class="msg" id="chi-msg"></span></div>
+        <table class="admin-table" style="margin-top:12px"><thead><tr><th>Kỳ</th><th>Trạng thái</th><th>Đã giải ngân</th><th>Cập nhật lúc</th><th></th></tr></thead><tbody id="chi-list"></tbody></table>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
