@@ -34,9 +34,14 @@
     return { P, D, XP, XD, SP, SD };
   }
 
+  /* Bản tin thu: giữ bản gần nhất (ngày <= kỳ đang xem) cho đến khi có bản mới hơn. */
+  function thuFor(p) {
+    return DATA.thu.filter((r) => r.date && r.date <= p).sort((a, b) => (a.date < b.date ? 1 : -1))[0] || null;
+  }
+
   /* ---------- Tổng quan ---------- */
   function renderOverview() {
-    const thu = DATA.thu.find((r) => r.date === current);
+    const thu = thuFor(current);
     const chi = DATA.chi.find((r) => r.date === current);
     $('#latest-date').textContent = dmy(current);
     $('#latest-availability').textContent = thu && chi ? 'Đã có cả bản tin thu và chi' : thu ? 'Mới có bản tin thu' : chi ? 'Mới có bản tin chi' : 'Chưa có tài liệu';
@@ -48,7 +53,7 @@
     $('#income-target').textContent = st.budget ? `Dự toán HĐND: ${st.budget} tỷ đồng` : 'Dự toán: xem trong PDF';
     const ir = pnum(st.budget_pct);
     $('#income-progress').style.width = Number.isFinite(ir) ? Math.min(100, ir) + '%' : '0%';
-    $('#income-context').textContent = st.weekly ? `Thu trong tuần: +${st.weekly} tỷ đồng` : `Kỳ ${dmy(current)}`;
+    $('#income-context').textContent = st.weekly ? `Thu trong tuần: +${st.weekly} tỷ đồng` : `Kỳ ${dmy(thu ? thu.date : current)}`;
     $('#income-facts').innerHTML = facts(thu ? [['Thu nội địa', st.domestic], ['Thu xuất nhập khẩu', st.customs], ['Còn phải thu (DT HĐND)', st.remaining]] : null);
 
     if (chi) {
@@ -152,8 +157,8 @@
 
   /* ---------- Bản tin thu ---------- */
   function renderThu() {
-    const t = DATA.thu.find((x) => x.date === current);
-    $('#viewer-date').textContent = `Kỳ ${dmy(current)}`;
+    const t = thuFor(current);
+    $('#viewer-date').textContent = `Kỳ ${dmy(t ? t.date : current)}`;
     $('#thu-empty').hidden = !!t;
     $('#pdf-frame').hidden = !t;
     $('#download-pdf').hidden = !t; $('#open-pdf').hidden = !t;
